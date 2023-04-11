@@ -56,3 +56,4 @@ def create_ingredient(db: Session):
             name=ingredient['name']
         )
         create_init_ingredient(db, db_ingredient)
+
