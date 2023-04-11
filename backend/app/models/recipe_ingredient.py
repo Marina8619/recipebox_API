@@ -2,7 +2,7 @@ from sqlalchemy import Column, Integer, String, ForeignKey
 from app.db.base_class import Base
 from app.models.mixin import Timestamp
 from sqlalchemy.orm import relationship
-from app.models.recipe import Recipe
+#from app.models.recipe import Recipe
 
 
 class RecipeIngredient(Timestamp, Base):
