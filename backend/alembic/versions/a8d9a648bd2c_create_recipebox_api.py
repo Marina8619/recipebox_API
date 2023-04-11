@@ -1,8 +1,8 @@
 """create recipebox_API
 
-Revision ID: 08b8cf394a98
+Revision ID: a8d9a648bd2c
 Revises: 
-Create Date: 2023-04-11 00:15:02.866001
+Create Date: 2023-04-11 11:24:37.622433
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = '08b8cf394a98'
+revision = 'a8d9a648bd2c'
 down_revision = None
 branch_labels = None
 depends_on = None

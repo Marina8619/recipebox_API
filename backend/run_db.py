@@ -3,6 +3,7 @@ import logging.config
 from app.core.config import LOGGING_CONFIG
 from app.db.session import SessionLocal
 from app.db.init_db import init_db
+from app.db.init_recipe_ingredient import init_rec_ing
 
 logging.config.dictConfig(LOGGING_CONFIG)
 logger = logging.getLogger('recipebox')
@@ -10,7 +11,8 @@ logger = logging.getLogger('recipebox')
 
 def init():
     db = SessionLocal()
-    init_db(db)
+    # init_db(db)
+    init_rec_ing(db)
 
 
 def main():
