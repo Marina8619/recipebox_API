@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "recipebox-api"
+version = "0.1.0"
+description = "project about recipes"
+authors = ["Tribukhova"]
+license = "MIT"
+readme = "README.md"
+packages = [{include = "recipebox_api"}]
+
+[tool.poetry.dependencies]
+python = "3.11"
+fastapi = {extras = ["all"], version = "^0.95.0"}
+sqlalchemy = "^2.0.9"
+alembic = "^1.10.3"
+pydentic = "^0.0.1.dev3"
+psycopg2 = "^2.9.6"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
