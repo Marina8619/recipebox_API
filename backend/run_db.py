@@ -11,7 +11,7 @@ logger = logging.getLogger('recipebox')
 
 def init():
     db = SessionLocal()
-    #init_db(db)
+    init_db(db)
     init_rec_ing(db)
 
 
