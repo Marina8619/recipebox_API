@@ -15,6 +15,11 @@ def create_recipe_ingredient(db: Session, recipe_ingredient: RecipeIngredient) -
         ingredient_id=recipe_ingredient.ingredient_id,
         quantity=recipe_ingredient.quantity
     )
+
+    db.add(db_recipe_ingredient)
+    db.commit()
+    db.refresh(db_recipe_ingredient)
+
     logger.info(f"Recipe ingredient {recipe_ingredient} created")
     return db_recipe_ingredient
 

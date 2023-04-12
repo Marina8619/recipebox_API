@@ -21,17 +21,17 @@ class Settings(BaseSettings):
 
     INIT_RECIPE: list = [
         {"name": "omelet", "description": "a great breakfast option", "difficulty": 2,
-         "instructions": "mix all the ingredients and put in the oven for 20 minutes"},
+         "instructions": "mix all the ingredients and put in the oven for 20 minutes", "user_id": 1},
         {"name": "rice milk soup", "description": "instant soup", "difficulty": 1,
-         "instructions": "cook rice for 20 minutes, add milk and bring to a boil"}
+         "instructions": "cook rice for 20 minutes, add milk and bring to a boil", "user_id": 1}
     ]
 
     INIT_INGREDIENT: list = [
-        {"name": "egg", },
-        {"name": "milk", },
-        {"name": "salt", },
-        {"name": "water", },
-        {"name": "rise", },
+        {"name": "egg", "units": "unit"},
+        {"name": "milk", "units": "ml"},
+        {"name": "salt", "units": "mg"},
+        {"name": "water", "units": "ml"},
+        {"name": "rise", "units": "g"},
     ]
 
     INIT_USER: dict = {

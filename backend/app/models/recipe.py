@@ -11,5 +11,7 @@ class Recipe(Timestamp, Base):
     description = Column(String(120), nullable=False)
     difficulty = Column(Integer)
     instructions = Column(String(120), nullable=False)
+    user_id = Column(Integer, ForeignKey("user.id"), nullable=False)
 
     ingredients = relationship("RecipeIngredient", back_populates='recipe')
+    user = relationship("User", back_populates='receipt')
