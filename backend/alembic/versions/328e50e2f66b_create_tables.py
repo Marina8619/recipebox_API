@@ -1,8 +1,8 @@
-"""create recipebox_API
+"""create tables
 
-Revision ID: a8d9a648bd2c
+Revision ID: 328e50e2f66b
 Revises: 
-Create Date: 2023-04-11 11:24:37.622433
+Create Date: 2023-04-12 23:48:01.308948
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = 'a8d9a648bd2c'
+revision = '328e50e2f66b'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -47,7 +47,7 @@ def upgrade() -> None:
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('recipe_id', sa.Integer(), nullable=True),
     sa.Column('ingredient_id', sa.Integer(), nullable=True),
-    sa.Column('quantity', sa.String(length=50), nullable=False),
+    sa.Column('quantity', sa.Float(), nullable=False),
     sa.Column('create_at', sa.DateTime(), nullable=False),
     sa.Column('update_at', sa.DateTime(), nullable=False),
     sa.ForeignKeyConstraint(['ingredient_id'], ['ingredient.id'], ),

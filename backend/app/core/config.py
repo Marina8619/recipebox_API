@@ -42,25 +42,15 @@ class Settings(BaseSettings):
         "role_id": 1
     }
     INIT_RECIPE_INGREDIENT: list = [
-        {"recipe_id": 1, "ingredient_id": 1, "quantity": "10 units"},
-        {"recipe_id": 1, "ingredient_id": 2, "quantity": "0.5 liters"},
-        {"recipe_id": 1, "ingredient_id": 3, "quantity": "1 teaspoon of salt"},
-        {"recipe_id": 2, "ingredient_id": 5, "quantity": "0.5 glass"},
-        {"recipe_id": 2, "ingredient_id": 4, "quantity": "1 glasses"},
-        {"recipe_id": 2, "ingredient_id": 2, "quantity": "2 glasses"},
-        {"recipe_id": 2, "ingredient_id": 3, "quantity": "0.5 teaspoon of salt"}
+        {"recipe_id": 1, "ingredient_id": 1, "quantity": 10.0},
+        {"recipe_id": 1, "ingredient_id": 2, "quantity": 0.5},
+        {"recipe_id": 1, "ingredient_id": 3, "quantity": 1},
+        {"recipe_id": 2, "ingredient_id": 5, "quantity": 0.5},
+        {"recipe_id": 2, "ingredient_id": 4, "quantity": 0.5},
+        {"recipe_id": 2, "ingredient_id": 2, "quantity": 2},
+        {"recipe_id": 2, "ingredient_id": 3, "quantity": 0.5}
 
     ]
-    # INIT_RECIPE_INGREDIENT: list = [
-    #     {"id": 1, "recipe_id": 1, "ingredient_id": 1, "quantity": "10 units"},
-    #     {"id": 2, "recipe_id": 1, "ingredient_id": 2, "quantity": "0.5 liters"},
-    #     {"id": 3, "recipe_id": 1, "ingredient_id": 3, "quantity": "1 teaspoon of salt"},
-    #     {"id": 4, "recipe_id": 2, "ingredient_id": 5, "quantity": "0.5 glass"},
-    #     {"id": 5, "recipe_id": 2, "ingredient_id": 4, "quantity": "1 glasses"},
-    #     {"id": 6, "recipe_id": 2, "ingredient_id": 2, "quantity": "2 glasses"},
-    #     {"id": 7, "recipe_id": 2, "ingredient_id": 3, "quantity": "0.5 teaspoon of salt"}
-    #
-    # ]
 
     class Config:
         env_file = ENV_PATH

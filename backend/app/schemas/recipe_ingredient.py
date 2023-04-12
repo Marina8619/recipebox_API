@@ -4,7 +4,7 @@ from pydantic import BaseModel
 class RecipeIngredientBaseModel(BaseModel):
     recipe_id: int
     ingredient_id: int
-    quantity: str
+    quantity: float
 
 
 class RecipeIngredientCreateModel(RecipeIngredientBaseModel):

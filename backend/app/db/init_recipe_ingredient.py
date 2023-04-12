@@ -1,8 +1,6 @@
 import logging
 
 from app.crud.recipe_ingredient import create_recipe_ingredient
-#from app.schemas.recipe_ingredient import RecipeIngredientModel
-
 from app.schemas.recipe_ingredient import RecipeIngredientCreateModel
 
 # Set up logging configuration
@@ -10,8 +8,6 @@ logging.basicConfig(level=logging.INFO)
 from sqlalchemy.orm import Session
 from app.core.config import Settings
 
-# # from app.crud.book import get_book_by_id
-# from app.crud.recipe_ingredient import create_recipe_ingredient
 
 logger = logging.getLogger('recipebox')
 settings = Settings()

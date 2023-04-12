@@ -18,9 +18,10 @@ logger = logging.getLogger('recipebox')
 
 
 def init_db(db: Session):
-    create_ingredient(db)
+    #create_user(db)
+    #create_ingredient(db)
     create_recipe(db)
-    create_user(db)
+
 
 
 def create_user(db: Session):
