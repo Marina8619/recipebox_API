@@ -6,6 +6,7 @@ class RecipeBaseModel(BaseModel):
     description: str
     difficulty: int
     instructions: str
+    user_id: str
 
 
 class RecipeCreateModel(RecipeBaseModel):

@@ -3,6 +3,7 @@ from typing import List
 
 from sqlalchemy.orm import Session
 from app.models.recipe import Recipe
+from app.models.recipe_ingredient import RecipeIngredient
 
 
 logger = logging.getLogger("recipebox")
@@ -13,12 +14,14 @@ def create_init_recipe(db: Session, recipe: Recipe) -> Recipe:
         name=recipe.name,
         description=recipe.description,
         difficulty=recipe.difficulty,
-        instructions=recipe.instructions
+        instructions=recipe.instructions,
+        user_id=recipe.user_id
     )
     db.add(db_recipe)
     db.commit()
     db.refresh(db_recipe)
-    logger.info(f'Created book {db_recipe}')
+
+    logger.info(f'Created recipe {db_recipe}')
     return db_recipe
 
 

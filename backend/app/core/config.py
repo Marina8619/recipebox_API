@@ -21,17 +21,17 @@ class Settings(BaseSettings):
 
     INIT_RECIPE: list = [
         {"name": "omelet", "description": "a great breakfast option", "difficulty": 2,
-         "instructions": "mix all the ingredients and put in the oven for 20 minutes"},
+         "instructions": "mix all the ingredients and put in the oven for 20 minutes", "user_id": 1},
         {"name": "rice milk soup", "description": "instant soup", "difficulty": 1,
-         "instructions": "cook rice for 20 minutes, add milk and bring to a boil"}
+         "instructions": "cook rice for 20 minutes, add milk and bring to a boil", "user_id": 1}
     ]
 
     INIT_INGREDIENT: list = [
-        {"name": "egg", },
-        {"name": "milk", },
-        {"name": "salt", },
-        {"name": "water", },
-        {"name": "rise", },
+        {"name": "egg", "units": "unit"},
+        {"name": "milk", "units": "ml"},
+        {"name": "salt", "units": "mg"},
+        {"name": "water", "units": "ml"},
+        {"name": "rise", "units": "g"},
     ]
 
     INIT_USER: dict = {
@@ -49,8 +49,18 @@ class Settings(BaseSettings):
         {"recipe_id": 2, "ingredient_id": 4, "quantity": 0.5},
         {"recipe_id": 2, "ingredient_id": 2, "quantity": 2},
         {"recipe_id": 2, "ingredient_id": 3, "quantity": 0.5}
-
     ]
+
+    # INIT_RECIPE_INGREDIENT: list = [
+    #     {"id": 1, "recipe_id": 1, "ingredient_id": 1, "quantity": "10 units"},
+    #     {"id": 2, "recipe_id": 1, "ingredient_id": 2, "quantity": "0.5 liters"},
+    #     {"id": 3, "recipe_id": 1, "ingredient_id": 3, "quantity": "1 teaspoon of salt"},
+    #     {"id": 4, "recipe_id": 2, "ingredient_id": 5, "quantity": "0.5 glass"},
+    #     {"id": 5, "recipe_id": 2, "ingredient_id": 4, "quantity": "1 glasses"},
+    #     {"id": 6, "recipe_id": 2, "ingredient_id": 2, "quantity": "2 glasses"},
+    #     {"id": 7, "recipe_id": 2, "ingredient_id": 3, "quantity": "0.5 teaspoon of salt"}
+    #
+    # ]
 
     class Config:
         env_file = ENV_PATH
