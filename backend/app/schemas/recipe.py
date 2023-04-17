@@ -31,6 +31,11 @@ class RecipeModel(RecipeBaseModel):
         orm_mode = True
 
 
+
+
+    class Config:
+        orm_mode = True
+
 # from typing import List
 # from pydantic import BaseModel
 #

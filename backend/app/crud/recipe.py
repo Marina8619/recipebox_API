@@ -1,9 +1,11 @@
 import logging
 from typing import List
 
+from fastapi import Depends
 from sqlalchemy.orm import Session
 from app.models.recipe import Recipe
 from app.models.recipe_ingredient import RecipeIngredient
+
 
 
 logger = logging.getLogger("recipebox")
@@ -31,4 +33,6 @@ def get_recipe_by_id(db: Session, id_: int) -> Recipe:
 
 def get_recipe_list(db: Session) -> List[Recipe]:
     return db.query(Recipe).all()
+
+
 
