@@ -1,4 +1,4 @@
-from sqlalchemy import Column, Integer, String, ForeignKey
+from sqlalchemy import Column, Integer, ForeignKey
 from app.db.base_class import Base
 from app.models.mixin import Timestamp
 from sqlalchemy.orm import relationship
@@ -16,3 +16,5 @@ class RecipeIngredient(Timestamp, Base):
     recipe = relationship("Recipe", back_populates="ingredients")
     ingredient = relationship("Ingredient", back_populates="recipes")
 
+    ingredient_name = association_proxy(target_collection='ingredient', attr='name')
+    ingredient_units = association_proxy(target_collection='ingredient', attr='units')

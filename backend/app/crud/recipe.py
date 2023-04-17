@@ -1,9 +1,8 @@
 import logging
 from typing import List
 
-from sqlalchemy.orm import Session
+from sqlalchemy.orm import Session, joinedload
 from app.models.recipe import Recipe
-from app.models.recipe_ingredient import RecipeIngredient
 
 
 logger = logging.getLogger("recipebox")
@@ -25,8 +24,8 @@ def create_init_recipe(db: Session, recipe: Recipe) -> Recipe:
     return db_recipe
 
 
-def get_recipe_by_id(db: Session, recipe_id: int) -> Recipe:
-    return db.query(Recipe).filter(Recipe.id == recipe_id).first()
+def get_recipe_by_id(db: Session, id_: int):
+    return db.query(Recipe).options(joinedload(Recipe.ingredients)).where(Recipe.id == id_).first()
 
 
 def get_recipe_list(db: Session) -> List[Recipe]:
