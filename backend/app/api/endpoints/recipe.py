@@ -8,23 +8,28 @@ from app.db.session import get_db
 from app.schemas.recipe import RecipeModel
 from app.models.recipe import Recipe
 
-from app.schemas.recipe import RecipeBaseModel
+
+from app.crud.recipe import get_recipe_by_id, get_recipe_list
+
+
 
 recipe_router = APIRouter()
 logger = logging.getLogger('recipebox')
 
 
-@recipe_router.get("/{recipe_id}", response_model=RecipeModel)
-def get_recipe_by_id(recipe_id: int, db: Session = Depends(get_db)):
-    recipe = db.query(Recipe).filter(Recipe.id == recipe_id).first()
-    if not recipe:
-        raise HTTPException(status_code=404, detail="Recipe wasn't found")
-    return recipe
+@recipe_router.get("/receipts/{receipt_id}", response_model=RecipeModel)
+def get_receipt(receipt_id: int, db: Session = Depends(get_db)):
+    if receipt := get_recipe_by_id(db, receipt_id):
+        logger.info(f"Found receipt of {receipt.name}")
+        return receipt
+    else:
+        return HTTPException(status_code=404, detail="Recipe wasn't found")
 
 
-@recipe_router.get('/', response_model=List[RecipeModel])
-async def get_recipe_list(db: Session = Depends(get_db)):
-    return db.query(Recipe).all()
+@recipe_router.get('/receipts/', response_model=List[RecipeModel])
+def get_receipts(db: Session = Depends(get_db)):
+    return get_recipe_list(db)
+
 
 
 @recipe_router.get("/recipes/{recipe_name}", response_model=RecipeModel)

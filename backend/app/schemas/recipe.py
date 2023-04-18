@@ -1,4 +1,7 @@
+from typing import List
+
 from pydantic import BaseModel
+from .ingredient import IngredientOutModel
 
 
 class RecipeBaseModel(BaseModel):
@@ -17,39 +20,11 @@ class RecipeUpdateModel(RecipeBaseModel):
     pass
 
 
-class Recipe(RecipeBaseModel):
-    id: int
-
-    class Config:
-        orm_mode = True
-
-
 class RecipeModel(RecipeBaseModel):
     id: int
+    ingredients: List[IngredientOutModel]
 
     class Config:
         orm_mode = True
 
 
-
-
-    class Config:
-        orm_mode = True
-
-# from typing import List
-# from pydantic import BaseModel
-#
-#
-# class RecipeBaseSchema(BaseModel):
-#     name: str
-#     description: str
-#     difficulty: int
-#     instructions: str
-#     user_id: int
-#
-#
-# class RecipeSchema(RecipeBaseModel):
-#     id: int
-#
-#     class Config:
-#         orm_mode = True
