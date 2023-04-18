@@ -6,6 +6,7 @@ from app.models.mixin import Timestamp
 
 from .user import User
 from .ingredient import Ingredient
+from .recipe_ingredient import RecipeIngredient
 
 
 class Recipe(Timestamp, Base):
