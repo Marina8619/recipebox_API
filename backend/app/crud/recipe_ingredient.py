@@ -23,4 +23,3 @@ def create_recipe_ingredient(db: Session, recipe_ingredient: RecipeIngredient) -
     logger.info(f"Recipe ingredient {recipe_ingredient} created")
     return db_recipe_ingredient
 
-

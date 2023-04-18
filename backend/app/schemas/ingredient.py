@@ -1,5 +1,7 @@
 from typing import Optional
+
 from pydantic import BaseModel, Field
+
 
 
 class IngredientBaseModel(BaseModel):
@@ -17,8 +19,10 @@ class IngredientUpdateModel(IngredientBaseModel):
 
 class IngredientOutModel(IngredientBaseModel):
     id: int
+
     name: str = Field(..., alias='ingredient_name')
     units: str = Field(..., alias='ingredient_units')
+
 
     class Config:
         orm_mode = True
@@ -27,6 +31,10 @@ class IngredientOutModel(IngredientBaseModel):
 
 class IngredientModel(IngredientBaseModel):
     id: int
+    recipe_id: int = Field(..., exclude=True)
+    recipe: Recipe
 
     class Config:
         orm_mode = True
+
+

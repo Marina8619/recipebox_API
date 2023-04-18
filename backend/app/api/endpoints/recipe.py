@@ -8,7 +8,9 @@ from app.db.session import get_db
 from app.schemas.recipe import RecipeModel
 from app.models.recipe import Recipe
 
+
 from app.crud.recipe import get_recipe_by_id, get_recipe_list
+
 
 
 recipe_router = APIRouter()
@@ -27,6 +29,7 @@ def get_receipt(receipt_id: int, db: Session = Depends(get_db)):
 @recipe_router.get('/receipts/', response_model=List[RecipeModel])
 def get_receipts(db: Session = Depends(get_db)):
     return get_recipe_list(db)
+
 
 
 @recipe_router.get("/recipes/{recipe_name}", response_model=RecipeModel)

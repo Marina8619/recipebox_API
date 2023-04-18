@@ -1,6 +1,6 @@
 from sqlalchemy import Column, Integer, String, ForeignKey
 from sqlalchemy.orm import relationship
-
+from app.models.user import User
 from app.db.base_class import Base
 from app.models.mixin import Timestamp
 

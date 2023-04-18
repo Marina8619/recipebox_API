@@ -1,9 +1,9 @@
 import logging
 from typing import List
 
+from sqlalchemy import select
 from sqlalchemy.orm import Session
 from app.models.ingredient import Ingredient
-
 
 logger = logging.getLogger("recipebox")
 
@@ -16,13 +16,15 @@ def create_init_ingredient(db: Session, ingredient: Ingredient) -> Ingredient:
     db.add(db_ingredient)
     db.commit()
     db.refresh(db_ingredient)
-    logger.info(f'Created author {db_ingredient}')
+    logger.info(f'Created ingredient {db_ingredient}')
     return db_ingredient
 
 
-def get_ingredient_by_id(db: Session, id_: int) -> Ingredient:
-    return db.query(Ingredient).filter(Ingredient.id == id_).first()
+# def get_ingredient_by_id(db: Session, ingredient_id: int) -> Ingredient:
+#     return db.query(Ingredient).filter(Ingredient.id == ingredient_id).first()
+
+#не сработала
+# def get_ingredient_list(db: Session) -> List[Ingredient]:
+#     return db.query(Ingredient).all()
 
 
-def get_ingredient_list(db: Session) -> List[Ingredient]:
-    return db.query(Ingredient).all()

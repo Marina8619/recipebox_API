@@ -31,4 +31,6 @@ def create_user(db: Session):
     except ValidationError as e:
         logger.error(f"An error occur while creating model {e}")
     else:
+
         create_init_user(db, db_user)
+

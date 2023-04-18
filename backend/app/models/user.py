@@ -15,4 +15,6 @@ class User(Timestamp, Base):
     role_id = Column(Integer, ForeignKey('role.id'), nullable=False, default=1)
 
     role = relationship("Role", back_populates="user")
+
     receipt = relationship("Recipe", back_populates="user")
+
