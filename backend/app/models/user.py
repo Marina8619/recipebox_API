@@ -17,4 +17,3 @@ class User(Timestamp, Base):
     role = relationship("Role", back_populates="user")
 
     receipt = relationship("Recipe", back_populates="user")
-

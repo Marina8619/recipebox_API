@@ -36,22 +36,6 @@ class RecipeIngredientsResponseSchema(BaseModel):
     ingredients: List[IngredientSchema]
 
 
-# class RecipeIngredientModel(BaseModel):
-#     recipe_id: int
-#     ingredient_id: int
-#     quantity: float
-#
-# class RecipeIngredientSchema(BaseModel):
-#     id: int
-#     recipe_id: int
-#     ingredient_id: int
-#     quantity: float
-#     ingredient: Optional[IngredientSchema]
-#
-#     class Config:
-#         orm_mode = True
-
-
 class RecipeWithIngredients(BaseModel):
     id: int
     name: str
@@ -63,9 +47,3 @@ class RecipeWithIngredients(BaseModel):
 
     class Config:
         orm_mode = True
-
-
-# class IngredientQuantity(BaseModel):
-#     name: str
-#     quantity: float
-#     units: str

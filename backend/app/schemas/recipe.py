@@ -26,5 +26,3 @@ class RecipeModel(RecipeBaseModel):
 
     class Config:
         orm_mode = True
-
-
