@@ -29,4 +29,4 @@ app.include_router(api_router)
 @app.get("/")
 async def root():
     logger.debug("Start application")
-    return {"message": "Hello FastAPI"}
+    return {"message": "The Recipe Book app welcomes you!!!"}

@@ -17,3 +17,5 @@ class RecipeIngredient(Timestamp, Base):
 
     ingredient_name = association_proxy(target_collection='ingredient', attr='name')
     ingredient_units = association_proxy(target_collection='ingredient', attr='units')
+
+

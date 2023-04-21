@@ -2,6 +2,7 @@ from typing import List
 
 from pydantic import BaseModel
 from .ingredient import IngredientOutModel
+from .recipe_ingredient import RecipeIngredientModel
 
 
 class RecipeBaseModel(BaseModel):
@@ -26,3 +27,8 @@ class RecipeModel(RecipeBaseModel):
 
     class Config:
         orm_mode = True
+
+
+class RecIngModel(BaseModel):
+    recipe: RecipeModel
+    rec_ing: List[RecipeIngredientModel]

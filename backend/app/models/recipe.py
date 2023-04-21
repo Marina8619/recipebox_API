@@ -1,9 +1,12 @@
+from typing import List
+
 from sqlalchemy import Column, Integer, String, ForeignKey
 from sqlalchemy.orm import relationship
 
 from app.db.base_class import Base
 from app.models.mixin import Timestamp
 
+from .recipe_ingredient import RecipeIngredient
 from .user import User
 
 
@@ -17,3 +20,9 @@ class Recipe(Timestamp, Base):
 
     ingredients = relationship("RecipeIngredient", back_populates='recipe')
     user = relationship("User", back_populates='receipt')
+
+
+class RecIng(Timestamp, Base):
+    id = Column(Integer, primary_key=True, nullable=False)
+    recipe = Recipe
+    rec_ing = List[RecipeIngredient]
