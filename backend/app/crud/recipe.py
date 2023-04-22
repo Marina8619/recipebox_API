@@ -48,3 +48,7 @@ def get_recipe_list(db: Session) -> List[Recipe]:
     return db.query(Recipe).all()
 
 
+def get_recipe_by_name(db: Session, name_: str):
+    return db.query(Recipe).options(joinedload(Recipe.ingredients)).where(Recipe.name == name_).first()
+
+
