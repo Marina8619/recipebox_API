@@ -1,6 +1,6 @@
 This is a web application called recipebox_API, created using FastAPI
 
-git
+
 Installation:
 
 1. Clone the repository in PyCharm: https://github.com/Marina8619/recipebox_API
