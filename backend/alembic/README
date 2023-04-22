@@ -1,1 +1,74 @@
-Generic single-database configuration.
+Это книги внутренний API для приложения Recipebox_API, созданный с использованием FastAPI, SQLAlchem, Alembic и Pydentic
+
+    Установка:
+     1.Клонируем репозиторий: git clone https://github.com/Marina8619/recipebox_API
+     2. Усатновите окружение
+     3.Установите зависимости с помощью Poetry: Poetry install Установите PostgreSQL и все необходимые библиотеки, если они еще не установлены на вашем компьютере. Установите psycopg2 с помощью следующей команды: pip install psycopg2 Установите Alembic в виртуальной среде Python, если она еще не установлена, выполнив следующую команду: alembic init alembic Создайте миграцию базы данных с помощью Alembic, выполнив команду: alembic Registration --autogenerate -m 'create db' Примените миграцию к базе данных, выполнив команду: alembic upgrade head Создайте базу данных, выполнив следующую команду из корневого каталога проекта: backend/run_db.py Запустите сервер, выполнив следующую команду: uvicorn main:app --перезагрузить
+    Структура проекта Проект структурирован следующим образом: backend: каталог backend содержит приложение FastAPI, а также модели баз данных, схемы, операции CRUD и конечные точки API. logs: каталог журналов — это место, где хранятся журналы, созданные приложением. Стихи.лок: файл блокировки поэзии, содержащий зависимости проекта и их версии. pyproject.toml: файл конфигурации проекта Poetry. README.md: файл README, содержащий инструкции по установке и запуску проекта.
+
+ recipebox_API
+├─ backend
+│  ├─ alembic
+│  │  ├─ env.py
+│  │  ├─ README
+│  │  ├─ script.py.mako
+│  │  └─ versions
+│  │     └─ f71af3d8e713_create_db.py
+│  ├─ alembic.ini
+│  ├─ app
+│  │  ├─ api
+│  │  │  ├─ endpoints
+│  │  │  ├─ api.py
+│  │  │  └─ __init__.py
+│  │  ├─ core
+│  │  │  ├─ config.py
+│  │  │  └─ __init__.py
+│  │  ├─ crud
+│  │  │  ├─ ingredient.py
+│  │  │  ├─ recipe.py
+│  │  │  ├─ recipe_ingredient.py
+│  │  │  ├─ user.py
+│  │  │  └─ __init__.py
+│  │  ├─ db
+│  │  │  ├─ base.py
+│  │  │  ├─ base_class.py
+│  │  │  ├─ db_setup.py
+│  │  │  ├─ init_db.py
+│  │  │  ├─ init_recipe_ingredient.py
+│  │  │  ├─ session.py
+│  │  │  └─ __init__.py
+│  │  ├─ models
+│  │  │  ├─ ingredient.py
+│  │  │  ├─ mixin.py
+│  │  │  ├─ recipe.py
+│  │  │  ├─ recipe_ingredient.py
+│  │  │  ├─ role.py
+│  │  │  ├─ user.py
+│  │  │  └─ __init__.py
+│  │  ├─ schemas
+│  │  │  ├─ ingredient.py
+│  │  │  ├─ recipe.py
+│  │  │  ├─ recipe_ingredient.py
+│  │  │  ├─ role.py
+│  │  │  ├─ user.py
+│  │  │  └─ __init__.py
+│  │  └─ __init__.py
+│  ├─ run_db.py
+│  ├─ main.py
+│  └─ __init__.py
+├─ logs
+├─ poetry.lock
+├─ pyproject.toml
+├─ README.md
+
+    Backend Каталог backend содержит следующие подкаталоги и файлы: alembic: каталог alembic содержит сценарии миграции базы данных, сгенерированные Alembic. alembic.ini: файл конфигурации Alembic. app: Каталог app содержит основной код приложения FastAPI. run_db.py: скрипт для инициализации базы данных и создания таблиц. main.py: основная точка входа для приложения FastAPI. init .py: пустой файл, чтобы сделать внутренний каталог пакетом Python.
+
+каталог app Каталог app содержит следующие подкаталоги и файлы: api: каталог api содержит конечные точки API для приложения. core: каталог core содержит основной код конфигурации приложения. crud: каталог crud содержит операции CRUD (создание, чтение, обновление, удаление) для моделей баз данных. db: Каталог db содержит код установки и инициализации сеанса базы данных. модели: Каталог моделей содержит модели базы данных. schemas: каталог schemas содержит определения схем Pydantic для моделей баз данных. init .py: пустой файл, чтобы сделать каталог приложения пакетом Python.
+
+Каталог API Каталог API содержит следующие файлы: endpoints: Каталог endpoints содержит код реализации для конечных точек API. api.py: основной маршрутизатор API, который связывает все конечные точки вместе. init .py: пустой файл, чтобы сделать каталог API пакетом Python.
+
+каталог core Каталог core содержит следующие файлы: config.py: параметры конфигурации для приложения. init .py: пустой файл, чтобы сделать основной каталог пакетом Python.
+
+Каталог crud Каталог crud содержит следующие файлы: ингредиент.py: операции CRUD для модели ингредиентов. recipe.py: операции CRUD для модели Recipe. recipe_ingredient.py: операции CRUD для модели RecipeIngredient. user.py: операции CRUD для модели User. init .py: пустой файл, чтобы сделать каталог crud пакетом Python.
+
+Каталог db Каталог db содержит следующие файлы: base.py: базовый класс для моделей SQLAlchemy. base_class.py: базовый класс для пользовательских моделей SQLAlchemy.

@@ -29,6 +29,4 @@ class RecipeModel(RecipeBaseModel):
         orm_mode = True
 
 
-class RecIngModel(BaseModel):
-    recipe: RecipeModel
-    rec_ing: List[RecipeIngredientModel]
+

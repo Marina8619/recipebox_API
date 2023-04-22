@@ -1,6 +1,6 @@
 import logging
 
-from app.crud.recipe_ingredient import create_recipe_ingredient
+from app.crud.recipe_ingredient import create_init_recipe_ingredient
 from app.crud.ingredient import create_init_ingredient
 from app.crud.recipe import create_init_recipe
 
@@ -27,7 +27,7 @@ def init_rec_ing(db: Session):
     create_init_recipe_ingredient(db)
 
 
-def create_init_recipe_ingredient(db: Session):
+def create_recipe_ingredient(db: Session):
     recipe_ingredient = settings.INIT_RECIPE_INGREDIENT
     if isinstance(recipe_ingredient, list):
         for r in recipe_ingredient:

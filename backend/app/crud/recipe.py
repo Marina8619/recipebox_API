@@ -46,3 +46,5 @@ def get_recipe_by_id(db: Session, id_: int):
 
 def get_recipe_list(db: Session) -> List[Recipe]:
     return db.query(Recipe).all()
+
+

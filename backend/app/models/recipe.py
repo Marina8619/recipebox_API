@@ -22,7 +22,4 @@ class Recipe(Timestamp, Base):
     user = relationship("User", back_populates='receipt')
 
 
-class RecIng(Timestamp, Base):
-    id = Column(Integer, primary_key=True, nullable=False)
-    recipe = Recipe
-    rec_ing = List[RecipeIngredient]
+
